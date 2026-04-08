@@ -10,20 +10,52 @@ export const siteConfig = {
   githubRepoUrl: GITHUB_REPO_URL,
   nav: [
     { label: "Features", href: "/features" },
+    { label: "Marketers", href: "/marketers" },
+    { label: "Developers", href: "/developers" },
+    { label: "Enterprise", href: "/enterprise" },
     { label: "Pricing", href: "/pricing" },
     { label: "Docs", href: "/docs" },
   ],
   footer: {
     product: [
       { label: "Features", href: "/features" },
+      { label: "Marketers", href: "/marketers" },
+      { label: "Headless CRM", href: "/use-cases/headless-crm" },
+      {
+        label: "Enterprise app builder",
+        href: "/use-cases/enterprise-app-builder",
+      },
+      {
+        label: "Sales force automation",
+        href: "/use-cases/sales-force-automation",
+      },
+      {
+        label: "Marketing automation",
+        href: "/use-cases/marketing-automation",
+      },
       { label: "Pricing", href: "/pricing" },
       { label: "Changelog", href: "/changelog" },
     ],
     developers: [
+      { label: "Developers", href: "/developers" },
+      { label: "Headless CRM", href: "/use-cases/headless-crm" },
+      {
+        label: "Enterprise app builder",
+        href: "/use-cases/enterprise-app-builder",
+      },
+      {
+        label: "Sales force automation",
+        href: "/use-cases/sales-force-automation",
+      },
+      {
+        label: "Marketing automation",
+        href: "/use-cases/marketing-automation",
+      },
       { label: "Documentation", href: "/docs" },
       { label: "GitHub", href: GITHUB_REPO_URL },
     ],
     company: [
+      { label: "Enterprise", href: "/enterprise" },
       { label: "About", href: "/about" },
       { label: "Contact", href: "/contact" },
     ],
