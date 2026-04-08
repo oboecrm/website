@@ -1,8 +1,8 @@
-import { MarketingPageHeader } from "@/components/marketing/page-header";
+import { PageHeader } from "@/components/page-header";
 
 export default function ChangelogPage() {
   return (
-    <MarketingPageHeader
+    <PageHeader
       title="Changelog"
       description="Release notes and migration guides will appear here. Consider automating entries from GitHub Releases."
     />

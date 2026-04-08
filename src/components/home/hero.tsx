@@ -1,6 +1,7 @@
 import { ArrowRight, Terminal } from "lucide-react";
 import Link from "next/link";
-import { Container } from "@/components/marketing/container";
+
+import { Container } from "@/components/container";
 import { Button } from "@/components/ui/button";
 import { siteConfig } from "@/config/site";
 

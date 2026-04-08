@@ -1,7 +1,8 @@
 import { Menu } from "lucide-react";
 import Link from "next/link";
-import { Container } from "@/components/marketing/container";
-import { ThemeToggle } from "@/components/marketing/theme-toggle";
+
+import { Container } from "@/components/container";
+import { ThemeToggle } from "@/components/theme-toggle";
 import { Button } from "@/components/ui/button";
 import { siteConfig } from "@/config/site";
 import { cn } from "@/lib/utils";

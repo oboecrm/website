@@ -1,8 +1,8 @@
-import { MarketingPageHeader } from "@/components/marketing/page-header";
+import { PageHeader } from "@/components/page-header";
 
 export default function AboutPage() {
   return (
-    <MarketingPageHeader
+    <PageHeader
       title="About"
       description="Tell the story behind OboeCRM — team, mission, and why code-first CRM matters for your users."
     />

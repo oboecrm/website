@@ -1,10 +1,10 @@
-import { Container } from "@/components/marketing/container";
-import { MarketingPageHeader } from "@/components/marketing/page-header";
+import { Container } from "@/components/container";
+import { PageHeader } from "@/components/page-header";
 
 export default function FeaturesPage() {
   return (
     <>
-      <MarketingPageHeader
+      <PageHeader
         title="Features"
         description="Deep dives for pipelines, APIs, and deployment patterns will live here. This page is a scaffold — replace the copy and sections as the product solidifies."
       />

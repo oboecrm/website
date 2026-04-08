@@ -1,7 +1,7 @@
 import { ArrowUpRight } from "lucide-react";
 import Link from "next/link";
 
-import { Container } from "@/components/marketing/container";
+import { Container } from "@/components/container";
 
 const cases = [
   {

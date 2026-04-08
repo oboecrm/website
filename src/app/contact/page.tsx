@@ -1,8 +1,8 @@
-import { MarketingPageHeader } from "@/components/marketing/page-header";
+import { PageHeader } from "@/components/page-header";
 
 export default function ContactPage() {
   return (
-    <MarketingPageHeader
+    <PageHeader
       title="Contact"
       description="Add a form, calendar embed, or mailto link. This placeholder keeps the manifesto CTA and footer routes functional."
     />

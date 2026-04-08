@@ -1,6 +1,6 @@
 import { Code2, Users } from "lucide-react";
 
-import { Container } from "@/components/marketing/container";
+import { Container } from "@/components/container";
 
 const pillars = [
   {

@@ -1,9 +1,9 @@
-import { HomeDualAudience } from "@/components/marketing/home/dual-audience";
-import { HomeFeaturesGrid } from "@/components/marketing/home/features-grid";
-import { HomeHero } from "@/components/marketing/home/hero";
-import { HomeManifesto } from "@/components/marketing/home/manifesto";
-import { HomeTestimonials } from "@/components/marketing/home/testimonials";
-import { HomeUseCases } from "@/components/marketing/home/use-cases";
+import { HomeDualAudience } from "@/components/home/dual-audience";
+import { HomeFeaturesGrid } from "@/components/home/features-grid";
+import { HomeHero } from "@/components/home/hero";
+import { HomeManifesto } from "@/components/home/manifesto";
+import { HomeTestimonials } from "@/components/home/testimonials";
+import { HomeUseCases } from "@/components/home/use-cases";
 
 export default function HomePage() {
   return (

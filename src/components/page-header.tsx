@@ -1,14 +1,11 @@
-import { Container } from "@/components/marketing/container";
+import { Container } from "@/components/container";
 
-type MarketingPageHeaderProps = {
+type PageHeaderProps = {
   title: string;
   description?: string;
 };
 
-export function MarketingPageHeader({
-  title,
-  description,
-}: MarketingPageHeaderProps) {
+export function PageHeader({ title, description }: PageHeaderProps) {
   return (
     <div className="border-b border-border/60 py-16 lg:py-24">
       <Container>
