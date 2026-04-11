@@ -1,0 +1,42 @@
+---
+title: Access control
+description: Why access rules belong next to the schema and how they reinforce the code-first model.
+---
+
+# Access control
+
+Access control is part of the product contract, not an afterthought.
+
+In a code-first CRM, the value is that read and write expectations can be audited where the rest of the model is audited.
+
+```ts
+defineAccess({
+  read: ({ user, record }) => user.role === "admin" || record.ownerId === user.id,
+  write: ({ user }) => ["admin", "sales"].includes(user.role),
+});
+```
+
+## Why colocating access matters
+
+- reviewers see data model and permissions together
+- application behavior is easier to reason about
+- security posture does not depend on hidden admin toggles
+
+## Common early cases
+
+- owner-based record visibility
+- role-based write access
+- environment-specific restrictions for operational tasks
+
+## Related pages
+
+- [Data model](/docs/core-concepts/data-model)
+- [Events and hooks](/docs/core-concepts/events-and-hooks)
+- [Self-hosting](/docs/guides/self-hosting)
+
+<DocCta
+  secondaryHref="/docs/core-concepts/events-and-hooks"
+  secondaryLabel="Events and hooks"
+  tertiaryHref="/docs/guides/self-hosting"
+  tertiaryLabel="Self-hosting"
+/>

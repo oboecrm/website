@@ -1,0 +1,55 @@
+---
+title: Config reference
+description: The top-level structure of oboe.config.ts and what each section is responsible for.
+---
+
+# Config reference
+
+This page explains the top-level shape of `oboe.config.ts`.
+
+## Purpose
+
+Use the config file to define the CRM contract your application and operational tooling will build around.
+
+## Minimal example
+
+```ts
+export default defineConfig({
+  schema: {
+    Account: { fields: { name: { type: "text", required: true } } },
+  },
+  api: { rest: true, graphql: true },
+  admin: { theme: "system" },
+});
+```
+
+## Top-level keys
+
+### `schema`
+
+Defines the objects, fields, constraints, and relations that make up the CRM model.
+
+### `api`
+
+Turns interface surfaces on and clarifies how the schema should be exposed to external callers and application code.
+
+### `admin`
+
+Controls how the operator-facing UI should be mounted or themed relative to the rest of the stack.
+
+### Extension surfaces
+
+As the project evolves, access rules, hooks, and other extension points should remain conceptually adjacent to the schema rather than becoming separate configuration silos.
+
+## Related pages
+
+- [Schema reference](/docs/reference/schema-reference)
+- [Generated APIs](/docs/core-concepts/generated-apis)
+- [Environment variables](/docs/reference/environment-variables)
+
+<DocCta
+  secondaryHref="/docs/reference/schema-reference"
+  secondaryLabel="Schema reference"
+  tertiaryHref="/docs/core-concepts/generated-apis"
+  tertiaryLabel="Generated APIs"
+/>

@@ -1,0 +1,36 @@
+---
+title: GraphQL API
+description: Where GraphQL fits in OboeCRM and why it complements the same schema-driven model as REST.
+---
+
+# GraphQL API
+
+This page explains the role of GraphQL in OboeCRM.
+
+## Purpose
+
+GraphQL is the flexible query surface for applications and internal tools that need to shape responses around UI or workflow requirements without breaking away from the same core schema.
+
+## Minimal shape
+
+GraphQL should reflect the schema's objects and relations in a way that stays conceptually aligned with the REST surface and the admin layer.
+
+## Good fit
+
+- custom React or Next.js interfaces
+- embedded operator workflows
+- queries that span related records
+- internal tools that need composition over fixed endpoints
+
+## Related pages
+
+- [Generated APIs](/docs/core-concepts/generated-apis)
+- [REST API](/docs/reference/rest-api)
+- [Embedding admin in Next.js](/docs/guides/embedding-admin-in-nextjs)
+
+<DocCta
+  secondaryHref="/docs/reference/rest-api"
+  secondaryLabel="REST API"
+  tertiaryHref="/docs/guides/embedding-admin-in-nextjs"
+  tertiaryLabel="Embedding admin in Next.js"
+/>

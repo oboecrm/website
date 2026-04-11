@@ -1,0 +1,73 @@
+---
+title: Quickstart
+description: The shortest path to understand OboeCRM's config model and the first public interfaces it is built around.
+---
+
+# Quickstart
+
+This page is about **fast evaluation**, not a full production install guide.
+
+If you are deciding whether OboeCRM belongs in your stack, the shortest useful path is:
+
+1. understand the config shape
+2. model one object pair
+3. see how that model maps to API surfaces
+4. decide whether to follow the project on GitHub
+
+## 1. Start from the config spine
+
+```ts
+// oboe.config.ts
+export default defineConfig({
+  schema: {
+    Account: {
+      fields: {
+        name: { type: "text", required: true },
+        domain: { type: "text", unique: true },
+      },
+    },
+    Deal: {
+      fields: {
+        value: { type: "currency" },
+        stage: { type: "select", options: ["lead", "won", "lost"] },
+      },
+      relations: { account: "Account" },
+    },
+  },
+  api: { rest: true, graphql: true },
+});
+```
+
+## 2. Validate the mental model
+
+After reading that file, you should already be able to answer:
+
+- where the data model lives
+- how object shape and constraints are expressed
+- why REST and GraphQL are discussed together instead of as separate products
+
+If those answers are still fuzzy, read [Your first schema](/docs/start-here/your-first-schema) next.
+
+## 3. Follow the generated surfaces
+
+From one schema definition, OboeCRM is designed to drive:
+
+- data storage and validation
+- REST and GraphQL interfaces
+- admin/operator views
+- access rules and extension hooks
+
+Read [Generated APIs](/docs/core-concepts/generated-apis) for the interface layer, then [Config reference](/docs/reference/config-reference) for the top-level structure.
+
+## 4. Decide whether to keep watching the project
+
+If the model fits how your team builds internal systems, back-office tooling, or product-adjacent CRM workflows, the next useful action is to follow the repo and track implementation progress publicly.
+
+<DocCta
+  title="If this is the right mental model, star the repo."
+  description="Early OSS projects need tight feedback loops. A GitHub star is the cleanest signal that the code-first direction resonates."
+  secondaryHref="/docs/start-here/your-first-schema"
+  secondaryLabel="Your first schema"
+  tertiaryHref="/docs/core-concepts/generated-apis"
+  tertiaryLabel="See generated APIs"
+/>

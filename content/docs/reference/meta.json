@@ -1,0 +1,11 @@
+{
+  "title": "Reference",
+  "pages": [
+    "config-reference",
+    "schema-reference",
+    "rest-api",
+    "graphql-api",
+    "cli",
+    "environment-variables"
+  ]
+}

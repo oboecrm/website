@@ -1,0 +1,39 @@
+---
+title: Import and sync
+description: How to think about moving CRM data in and out when the model is defined in code.
+---
+
+# Import and sync
+
+Most teams evaluating a CRM layer need to answer one operational question quickly: how does data move in and out?
+
+## Typical sources
+
+- CSV exports from legacy CRMs
+- warehouse snapshots
+- product events
+- marketing and sales systems
+
+## Why code-first helps
+
+If the schema is explicit, imports and sync jobs can target a known contract instead of reverse-engineering whatever exists in an admin UI.
+
+## Practical concerns
+
+- external IDs
+- deduplication rules
+- validation behavior
+- retry and observability strategy
+
+## Related pages
+
+- [REST API](/docs/reference/rest-api)
+- [Events and hooks](/docs/core-concepts/events-and-hooks)
+- [Modeling accounts and deals](/docs/guides/modeling-accounts-and-deals)
+
+<DocCta
+  secondaryHref="/docs/reference/rest-api"
+  secondaryLabel="REST API"
+  tertiaryHref="/docs/core-concepts/events-and-hooks"
+  tertiaryLabel="Events and hooks"
+/>

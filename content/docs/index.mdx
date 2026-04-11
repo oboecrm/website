@@ -1,6 +1,103 @@
 ---
-title: OboeCRM Documentation
-description: OboeCRM のドキュメントへようこそ
+title: Docs
+description: "Evaluate OboeCRM quickly: understand the config model, see the planned public surface, and decide whether to follow the project on GitHub."
 ---
 
-OboeCRM のドキュメントです。
+# Code-first CRM for TypeScript teams
+
+OboeCRM is an early open-source CRM project for teams that want their data model, APIs, and operational tooling to live in code.
+
+This documentation is optimized for **technical evaluation**, not for exhaustive product admin walkthroughs. Start with the config model, understand the generated surfaces, and use GitHub to track the project as it hardens.
+
+<DocCta
+  title="Evaluate the shape, then star the repo."
+  description="Use these docs to decide whether OboeCRM matches your stack and engineering culture. GitHub is the source of truth for progress."
+  secondaryHref="/docs/start-here/quickstart"
+  secondaryLabel="Quickstart"
+  tertiaryHref="/docs/reference/config-reference"
+  tertiaryLabel="View example config"
+/>
+
+## Minimal config
+
+```ts
+// oboe.config.ts
+import { defineConfig } from "@oboe/crm";
+
+export default defineConfig({
+  schema: {
+    Account: {
+      fields: {
+        name: { type: "text", required: true },
+        domain: { type: "text", unique: true },
+      },
+    },
+    Deal: {
+      fields: { value: { type: "currency" } },
+      relations: { account: "Account" },
+    },
+  },
+  api: { rest: true, graphql: true },
+});
+```
+
+## What you get
+
+- **Schema in code:** model accounts, deals, and custom objects in reviewed TypeScript.
+- **Typed REST and GraphQL:** one schema, multiple interfaces for apps, workers, and integrations.
+- **Admin UI:** an operator-facing layer that follows the same model as the API surface.
+- **Self-hosting:** run inside your own infrastructure and keep data residency decisions in-house.
+
+## Start here
+
+<div className="grid gap-4 md:grid-cols-2">
+  <a href="/docs/start-here/quickstart" className="block rounded-xl border border-border/70 p-4 no-underline transition-colors hover:bg-muted/40">
+    <div className="text-sm font-semibold text-foreground">Quickstart</div>
+    <div className="mt-2 text-sm leading-6 text-muted-foreground">
+      Follow the shortest path to understand the config model and the first surfaces OboeCRM intends to expose.
+    </div>
+  </a>
+  <a href="/docs/reference/config-reference" className="block rounded-xl border border-border/70 p-4 no-underline transition-colors hover:bg-muted/40">
+    <div className="text-sm font-semibold text-foreground">Config reference</div>
+    <div className="mt-2 text-sm leading-6 text-muted-foreground">
+      See the top-level structure of <code>oboe.config.ts</code> and what each section is responsible for.
+    </div>
+  </a>
+  <a href="/docs/reference/rest-api" className="block rounded-xl border border-border/70 p-4 no-underline transition-colors hover:bg-muted/40">
+    <div className="text-sm font-semibold text-foreground">REST API</div>
+    <div className="mt-2 text-sm leading-6 text-muted-foreground">
+      Understand the HTTP surface OboeCRM is expected to generate from the same schema definitions.
+    </div>
+  </a>
+  <a href="/docs/reference/graphql-api" className="block rounded-xl border border-border/70 p-4 no-underline transition-colors hover:bg-muted/40">
+    <div className="text-sm font-semibold text-foreground">GraphQL API</div>
+    <div className="mt-2 text-sm leading-6 text-muted-foreground">
+      See where GraphQL fits versus REST for custom apps, back-office tools, and data access patterns.
+    </div>
+  </a>
+  <a href="/docs/guides/self-hosting" className="block rounded-xl border border-border/70 p-4 no-underline transition-colors hover:bg-muted/40 md:col-span-2">
+    <div className="text-sm font-semibold text-foreground">Self-hosting</div>
+    <div className="mt-2 text-sm leading-6 text-muted-foreground">
+      Review infrastructure assumptions early if ownership, compliance, or deployment control matters to your team.
+    </div>
+  </a>
+</div>
+
+## Current scope
+
+OboeCRM is still early. These docs focus on the **public shape and decision-making primitives** visible in the project today:
+
+- config-driven schema
+- generated API surfaces
+- admin/runtime split
+- access and extension points
+- self-hosting expectations
+
+Detailed low-level APIs that are not yet stable belong in [Roadmap](/docs/project/roadmap) and [Architecture](/docs/project/architecture), not in the main evaluation path.
+
+<DocCta
+  secondaryHref="/docs/start-here/overview"
+  secondaryLabel="Read the overview"
+  tertiaryHref="/docs/project/contributing"
+  tertiaryLabel="Contribute"
+/>

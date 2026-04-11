@@ -1,0 +1,60 @@
+---
+title: Schema reference
+description: The core structural pieces of the schema surface that OboeCRM is organized around.
+---
+
+# Schema reference
+
+This reference describes the core pieces the schema is built from.
+
+## Purpose
+
+Use the schema to model CRM entities in code and to establish the contract other surfaces should follow.
+
+## Minimal example
+
+```ts
+schema: {
+  Account: {
+    fields: {
+      name: { type: "text", required: true },
+      domain: { type: "text", unique: true },
+    },
+  },
+  Deal: {
+    fields: {
+      value: { type: "currency" },
+    },
+    relations: {
+      account: "Account",
+    },
+  },
+}
+```
+
+## Main concepts
+
+### Objects
+
+Objects represent business entities such as accounts, deals, contacts, or custom records.
+
+### Fields
+
+Fields capture values, validation requirements, uniqueness, and other constraints relevant to that object.
+
+### Relations
+
+Relations link entities in ways the API and admin layers can understand consistently.
+
+## Related pages
+
+- [Your first schema](/docs/start-here/your-first-schema)
+- [Fields and relations](/docs/core-concepts/fields-and-relations)
+- [Modeling accounts and deals](/docs/guides/modeling-accounts-and-deals)
+
+<DocCta
+  secondaryHref="/docs/start-here/your-first-schema"
+  secondaryLabel="Your first schema"
+  tertiaryHref="/docs/guides/modeling-accounts-and-deals"
+  tertiaryLabel="Modeling guide"
+/>

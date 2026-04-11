@@ -1,0 +1,33 @@
+---
+title: Architecture
+description: The high-level architectural promises behind OboeCRM's code-first model.
+---
+
+# Architecture
+
+At a high level, OboeCRM is framed around one core idea: **the schema should be the contract that informs the rest of the stack**.
+
+## Architectural promises
+
+- one model should inform storage, APIs, and admin behavior
+- access and extension logic should remain close to the domain model
+- self-hosting should not be a second-class path
+
+## Architectural anti-goals
+
+- a hidden admin-only control plane
+- interface surfaces that drift away from the schema
+- infrastructure assumptions that only work for one deployment platform
+
+## Related pages
+
+- [Data model](/docs/core-concepts/data-model)
+- [Self-hosting](/docs/guides/self-hosting)
+- [Roadmap](/docs/project/roadmap)
+
+<DocCta
+  secondaryHref="/docs/guides/self-hosting"
+  secondaryLabel="Self-hosting"
+  tertiaryHref="/docs/project/roadmap"
+  tertiaryLabel="Roadmap"
+/>

@@ -1,0 +1,36 @@
+---
+title: REST API
+description: When the REST surface is useful in a code-first CRM and what to expect from it conceptually.
+---
+
+# REST API
+
+This page describes the role of the REST surface in OboeCRM's architecture.
+
+## Purpose
+
+REST is the most legible interface for predictable integrations, operational automations, and system boundaries where HTTP contracts matter more than query flexibility.
+
+## Minimal shape
+
+At a high level, the REST surface is intended to mirror the objects and constraints defined in the schema, so that records can be created, read, and updated without inventing a second model by hand.
+
+## Good fit
+
+- webhook consumers and producers
+- integration pipelines
+- stable CRUD-oriented flows
+- systems that do not need GraphQL flexibility
+
+## Related pages
+
+- [Generated APIs](/docs/core-concepts/generated-apis)
+- [GraphQL API](/docs/reference/graphql-api)
+- [Import and sync](/docs/guides/import-and-sync)
+
+<DocCta
+  secondaryHref="/docs/reference/graphql-api"
+  secondaryLabel="GraphQL API"
+  tertiaryHref="/docs/guides/import-and-sync"
+  tertiaryLabel="Import and sync"
+/>

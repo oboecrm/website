@@ -1,0 +1,38 @@
+---
+title: Environment variables
+description: Runtime configuration concerns that matter early in a self-hosted CRM deployment model.
+---
+
+# Environment variables
+
+This page captures the kinds of runtime configuration a self-hosted CRM project usually needs.
+
+## Purpose
+
+Environment variables separate deploy-time concerns from versioned schema and application code.
+
+## Typical categories
+
+- database connection details
+- application secrets
+- external service credentials
+- environment-specific runtime flags
+
+## Practical guidance
+
+- keep secrets out of the config file
+- prefer explicit names over overloaded generic variables
+- document production expectations early for self-hosting users
+
+## Related pages
+
+- [Installation](/docs/start-here/installation)
+- [Self-hosting](/docs/guides/self-hosting)
+- [Architecture](/docs/project/architecture)
+
+<DocCta
+  secondaryHref="/docs/guides/self-hosting"
+  secondaryLabel="Self-hosting"
+  tertiaryHref="/docs/project/architecture"
+  tertiaryLabel="Architecture"
+/>

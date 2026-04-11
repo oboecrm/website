@@ -1,0 +1,47 @@
+---
+title: Modeling accounts and deals
+description: A practical guide to starting with the two CRM objects most teams need first.
+---
+
+# Modeling accounts and deals
+
+If you only model two things first, make them `Account` and `Deal`.
+
+That combination is enough to validate:
+
+- object naming conventions
+- required and unique fields
+- relation handling
+- API and admin expectations
+
+## Recommended first cut
+
+- `Account.name`
+- `Account.domain`
+- `Deal.title`
+- `Deal.value`
+- `Deal.stage`
+- `Deal.account`
+
+## Why this works
+
+It gives you one durable company record and one workflow-heavy commercial record without dragging you into secondary concepts too early.
+
+## What to avoid initially
+
+- dozens of nullable fields
+- deeply nested workflow states
+- custom objects before core objects are legible
+
+## Related pages
+
+- [Your first schema](/docs/start-here/your-first-schema)
+- [Fields and relations](/docs/core-concepts/fields-and-relations)
+- [Schema reference](/docs/reference/schema-reference)
+
+<DocCta
+  secondaryHref="/docs/start-here/your-first-schema"
+  secondaryLabel="Your first schema"
+  tertiaryHref="/docs/reference/schema-reference"
+  tertiaryLabel="Schema reference"
+/>

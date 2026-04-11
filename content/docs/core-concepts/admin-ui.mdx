@@ -1,0 +1,39 @@
+---
+title: Admin UI
+description: The role of the admin layer in a code-first CRM and how it should relate to the schema.
+---
+
+# Admin UI
+
+The admin UI is not the source of truth. It is a consumer of the source of truth.
+
+That distinction matters because it changes how teams reason about ownership:
+
+- engineers own the model in code
+- operators use interfaces derived from that model
+- customizations should not require a second, opaque configuration system
+
+## What the admin layer should do well
+
+- expose the current object model clearly
+- make operational workflows legible
+- respect access rules defined alongside the rest of the system
+
+## What it should not replace
+
+- schema review
+- application-specific interfaces
+- domain logic that belongs in code
+
+## Related pages
+
+- [Generated APIs](/docs/core-concepts/generated-apis)
+- [Embedding admin in Next.js](/docs/guides/embedding-admin-in-nextjs)
+- [Access control](/docs/core-concepts/access-control)
+
+<DocCta
+  secondaryHref="/docs/guides/embedding-admin-in-nextjs"
+  secondaryLabel="Embedding admin in Next.js"
+  tertiaryHref="/docs/core-concepts/access-control"
+  tertiaryLabel="Access control"
+/>

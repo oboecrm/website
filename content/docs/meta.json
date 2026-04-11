@@ -1,4 +1,11 @@
 {
   "root": true,
-  "pages": ["index"]
+  "pages": [
+    "index",
+    "start-here",
+    "core-concepts",
+    "reference",
+    "guides",
+    "project"
+  ]
 }

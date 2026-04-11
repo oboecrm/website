@@ -1,0 +1,37 @@
+---
+title: Embedding admin in Next.js
+description: How to think about the operator UI when your application stack already lives in Next.js.
+---
+
+# Embedding admin in Next.js
+
+One of the strengths of a code-first CRM is that the operational UI does not have to live in a separate universe from the rest of your app.
+
+## Why teams care
+
+- shared auth and session handling
+- consistent deployment pipeline
+- easier integration with internal tools and product surfaces
+
+## Design goal
+
+The admin layer should be embeddable without forcing the data model or permissions to split away from the rest of the codebase.
+
+## Evaluation questions
+
+- can operators stay inside your app shell?
+- can the UI follow the same access rules as the API?
+- can custom workflows be introduced without forking the core model?
+
+## Related pages
+
+- [Admin UI](/docs/core-concepts/admin-ui)
+- [GraphQL API](/docs/reference/graphql-api)
+- [Access control](/docs/core-concepts/access-control)
+
+<DocCta
+  secondaryHref="/docs/core-concepts/admin-ui"
+  secondaryLabel="Admin UI"
+  tertiaryHref="/docs/reference/graphql-api"
+  tertiaryLabel="GraphQL API"
+/>

@@ -1,0 +1,32 @@
+---
+title: Migrations
+description: Why schema evolution should be treated like application change management, not vendor-side metadata drift.
+---
+
+# Migrations
+
+Schema changes are part of the product lifecycle. In a code-first CRM, migrations should feel like application change management, not a hidden side effect.
+
+## Goals
+
+- keep model evolution explicit
+- review changes in Git
+- align deployment and data changes
+- make rollback thinking possible
+
+## Early expectations
+
+Even before the migration tooling is fully mature, the standard should be clear: schema evolution belongs in the same disciplined workflow as the rest of your app.
+
+## Related pages
+
+- [Config reference](/docs/reference/config-reference)
+- [CLI](/docs/reference/cli)
+- [Roadmap](/docs/project/roadmap)
+
+<DocCta
+  secondaryHref="/docs/reference/cli"
+  secondaryLabel="CLI"
+  tertiaryHref="/docs/project/roadmap"
+  tertiaryLabel="Roadmap"
+/>

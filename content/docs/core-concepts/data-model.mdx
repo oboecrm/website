@@ -1,0 +1,45 @@
+---
+title: Data model
+description: Understand the central role the schema plays in a code-first CRM architecture.
+---
+
+# Data model
+
+In OboeCRM, the schema is not a side panel or a metadata export. It is the main contract.
+
+That means the data model is expected to influence:
+
+- persistence and validation
+- REST and GraphQL exposure
+- admin/operator views
+- access and workflow logic
+
+## Why this matters
+
+Traditional CRMs often split truth across several layers:
+
+- fields configured in an admin UI
+- APIs documented elsewhere
+- business rules encoded in custom scripts
+- reporting or integration logic duplicated in separate systems
+
+A code-first model tries to collapse those layers around one reviewed definition.
+
+## What "code-first" should mean in practice
+
+- your schema changes can be reviewed in pull requests
+- your interfaces can be reasoned about from one source of truth
+- operational changes follow the same delivery discipline as application changes
+
+## Related pages
+
+- [Your first schema](/docs/start-here/your-first-schema)
+- [Generated APIs](/docs/core-concepts/generated-apis)
+- [Config reference](/docs/reference/config-reference)
+
+<DocCta
+  secondaryHref="/docs/core-concepts/generated-apis"
+  secondaryLabel="Generated APIs"
+  tertiaryHref="/docs/reference/config-reference"
+  tertiaryLabel="Config reference"
+/>

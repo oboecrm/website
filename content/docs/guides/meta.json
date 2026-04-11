@@ -1,0 +1,10 @@
+{
+  "title": "Guides",
+  "pages": [
+    "modeling-accounts-and-deals",
+    "embedding-admin-in-nextjs",
+    "self-hosting",
+    "migrations",
+    "import-and-sync"
+  ]
+}

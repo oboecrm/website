@@ -1,0 +1,34 @@
+---
+title: CLI
+description: The role a CLI should play in a code-first CRM workflow.
+---
+
+# CLI
+
+The CLI should exist to reduce repetitive project setup and operational friction, not to become a second control plane.
+
+## Purpose
+
+A good CLI for OboeCRM would help with:
+
+- project scaffolding
+- local development tasks
+- environment-aware operational commands
+- migration-related workflows
+
+## Design constraint
+
+The CLI should complement the config model, not hide it. If a task can only be understood through a wizard and not from versioned files, the workflow becomes harder to review and maintain.
+
+## Related pages
+
+- [Installation](/docs/start-here/installation)
+- [Migrations](/docs/guides/migrations)
+- [Roadmap](/docs/project/roadmap)
+
+<DocCta
+  secondaryHref="/docs/guides/migrations"
+  secondaryLabel="Migrations"
+  tertiaryHref="/docs/project/roadmap"
+  tertiaryLabel="Roadmap"
+/>

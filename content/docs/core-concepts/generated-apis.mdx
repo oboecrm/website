@@ -1,0 +1,56 @@
+---
+title: Generated APIs
+description: How the same schema is intended to drive REST, GraphQL, and adjacent runtime surfaces.
+---
+
+# Generated APIs
+
+The key promise of OboeCRM is not "an API exists." It is that **the API surface follows the same schema contract** your team already reviews in code.
+
+## What gets generated from the model
+
+From the current public framing, the schema is expected to inform:
+
+- REST endpoints for straightforward system-to-system integrations
+- GraphQL for flexible application reads and mutations
+- admin/operator views backed by the same object definitions
+- extension points such as access rules and hooks
+
+## REST vs GraphQL
+
+### REST
+
+Use REST when the integration is explicit, stable, and often external to your application runtime.
+
+Good fit:
+
+- webhooks and ingestion pipelines
+- system integration boundaries
+- predictable CRUD-oriented workflows
+
+### GraphQL
+
+Use GraphQL when the calling application benefits from query flexibility or when you want richer composition in a custom frontend or internal tool.
+
+Good fit:
+
+- embedded operator experiences
+- custom back-office apps
+- frontend data requirements with variable shape
+
+## Evaluation question
+
+When you read the schema, you should be able to predict what the external interface will roughly look like. If the model and the API feel disconnected, the code-first promise is not working.
+
+## Related pages
+
+- [Config reference](/docs/reference/config-reference)
+- [REST API](/docs/reference/rest-api)
+- [GraphQL API](/docs/reference/graphql-api)
+
+<DocCta
+  secondaryHref="/docs/reference/rest-api"
+  secondaryLabel="REST API"
+  tertiaryHref="/docs/reference/graphql-api"
+  tertiaryLabel="GraphQL API"
+/>

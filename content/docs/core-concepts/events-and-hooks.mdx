@@ -1,0 +1,37 @@
+---
+title: Events and hooks
+description: Where automation and extension points fit in a code-first CRM stack.
+---
+
+# Events and hooks
+
+CRMs become valuable when they connect system state to business action. Hooks and events are where that connection happens.
+
+Examples of what teams typically want:
+
+- trigger follow-up work when a deal changes stage
+- sync records to downstream systems
+- enrich CRM records with product or warehouse data
+
+## Why this belongs in the core model
+
+If hooks are bolted on later, teams end up with:
+
+- duplicated business logic
+- hidden automation builders
+- integrations nobody can review confidently
+
+A code-first system should make extension points explicit and versioned.
+
+## Related pages
+
+- [Generated APIs](/docs/core-concepts/generated-apis)
+- [Import and sync](/docs/guides/import-and-sync)
+- [Roadmap](/docs/project/roadmap)
+
+<DocCta
+  secondaryHref="/docs/guides/import-and-sync"
+  secondaryLabel="Import and sync"
+  tertiaryHref="/docs/project/roadmap"
+  tertiaryLabel="Roadmap"
+/>

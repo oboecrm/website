@@ -1,0 +1,67 @@
+---
+title: Your first schema
+description: Model a minimal Account and Deal schema to understand how OboeCRM expresses CRM primitives in code.
+---
+
+# Your first schema
+
+The best first schema is intentionally small: one company object and one commercial object.
+
+```ts
+export default defineConfig({
+  schema: {
+    Account: {
+      fields: {
+        name: { type: "text", required: true },
+        domain: { type: "text", unique: true },
+      },
+    },
+    Deal: {
+      fields: {
+        title: { type: "text", required: true },
+        value: { type: "currency" },
+        stage: { type: "select", options: ["lead", "qualified", "won", "lost"] },
+      },
+      relations: {
+        account: "Account",
+      },
+    },
+  },
+});
+```
+
+## Why start here
+
+This tiny model shows most of the design pressure that matters:
+
+- object definitions live in code
+- fields carry validation and uniqueness rules
+- relations are explicit
+- CRM semantics do not require a separate vendor UI to define
+
+## What to notice
+
+### Required fields
+
+Use required fields for the data you need to trust at write time, not every field you eventually want populated.
+
+### Unique fields
+
+Uniqueness signals identity or integration boundaries. Domains and external IDs are better candidates than human-readable labels.
+
+### Relations
+
+Relations should explain business structure, not just database shape. `Deal -> Account` matters because it will influence API responses, admin views, and workflow logic.
+
+## Continue from here
+
+- [Fields and relations](/docs/core-concepts/fields-and-relations)
+- [Schema reference](/docs/reference/schema-reference)
+- [Modeling accounts and deals](/docs/guides/modeling-accounts-and-deals)
+
+<DocCta
+  secondaryHref="/docs/core-concepts/fields-and-relations"
+  secondaryLabel="Fields and relations"
+  tertiaryHref="/docs/guides/modeling-accounts-and-deals"
+  tertiaryLabel="Modeling guide"
+/>

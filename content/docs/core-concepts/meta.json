@@ -1,0 +1,11 @@
+{
+  "title": "Core Concepts",
+  "pages": [
+    "data-model",
+    "fields-and-relations",
+    "generated-apis",
+    "admin-ui",
+    "access-control",
+    "events-and-hooks"
+  ]
+}

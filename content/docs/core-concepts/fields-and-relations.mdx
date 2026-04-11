@@ -1,0 +1,63 @@
+---
+title: Fields and relations
+description: The core building blocks for expressing CRM objects and how they connect.
+---
+
+# Fields and relations
+
+Fields and relations are the minimum primitives for understanding OboeCRM.
+
+## Fields
+
+Fields should capture business meaning first and storage details second.
+
+```ts
+Account: {
+  fields: {
+    name: { type: "text", required: true },
+    domain: { type: "text", unique: true },
+    region: { type: "text" },
+  },
+}
+```
+
+Useful early categories:
+
+- identity fields
+- operational fields
+- reporting fields
+- integration keys
+
+## Relations
+
+Relations explain how records participate in workflows and interfaces.
+
+```ts
+Deal: {
+  relations: {
+    account: "Account",
+  },
+}
+```
+
+Model relations when they change how developers query, render, or automate on top of the CRM layer.
+
+## Design guidance
+
+- prefer explicit object names
+- avoid overloading one field for several meanings
+- treat unique fields as integration boundaries
+- keep the first schema boring and legible
+
+## Related pages
+
+- [Data model](/docs/core-concepts/data-model)
+- [Schema reference](/docs/reference/schema-reference)
+- [Modeling accounts and deals](/docs/guides/modeling-accounts-and-deals)
+
+<DocCta
+  secondaryHref="/docs/reference/schema-reference"
+  secondaryLabel="Schema reference"
+  tertiaryHref="/docs/guides/modeling-accounts-and-deals"
+  tertiaryLabel="Modeling guide"
+/>
