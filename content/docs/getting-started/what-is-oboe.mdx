@@ -1,0 +1,177 @@
+---
+title: What is Oboe?
+description: Understand OboeCRM as an open-source, code-first CRM framework and decide whether its operating model fits your team.
+---
+
+# What is OboeCRM?
+
+OboeCRM is an open-source, code-first CRM framework for teams that want their customer data model, APIs, operator tooling, and workflow logic to live in code.
+
+Write an Oboe config and you instantly get:
+
+- a React-based admin UI that matches the shape of your CRM model and can be extended with your own components
+- automatic database scaffolding with migrations, indexing, and direct ownership of your data
+- REST and GraphQL interfaces generated from the same schema your team reviews in Git
+- authentication and access control patterns that stay in code instead of hidden click-ops
+- hooks and webhooks for pipeline changes, enrichment, alerts, and downstream syncs
+- an optional operator surface that can stay standalone or be embedded into your product
+
+## A CRM foundation for engineering-led teams
+
+Most CRM projects force one of two compromises:
+
+- adopt rigid vendor objects and work around them forever
+- rebuild the same backend plumbing every time your GTM motion changes
+
+OboeCRM is for teams that want another option. It packages the repetitive CRM fundamentals so engineering can focus on the business logic, access model, and workflow design that actually make the system yours.
+
+## Instant CRM superpowers
+
+OboeCRM removes the slowest parts of building CRM infrastructure from scratch:
+
+- modeling accounts, deals, contacts, and custom objects
+- standing up typed API surfaces from one source of truth
+- shipping an operator UI without building every table, form, and detail view by hand
+- wiring auth, permissions, audit-friendly rules, and extension points into the same runtime
+
+This is the main idea: generate the boring parts, own the important parts.
+
+## Open source and deployable on your terms
+
+OboeCRM is designed for teams that care about data ownership, deployment control, and long-term flexibility.
+
+- keep your CRM model in-repo
+- self-host in infrastructure you control
+- avoid locking core revenue workflows behind a proprietary SaaS boundary
+- inspect and extend the system directly instead of negotiating for roadmap exceptions
+
+If your team already treats application infrastructure as a first-class engineering concern, OboeCRM fits that operating model.
+
+## Code-first and version controlled
+
+There is no hidden schema builder. Your CRM model, access rules, hooks, and generated surfaces all begin from code.
+
+```ts
+// oboe.config.ts
+import { defineConfig } from "@oboe/crm";
+
+export default defineConfig({
+  schema: {
+    Account: {
+      fields: {
+        name: { type: "text", required: true },
+        segment: {
+          type: "select",
+          options: ["enterprise", "mid-market", "smb"],
+        },
+        healthScore: { type: "number" },
+      },
+    },
+    Deal: {
+      fields: {
+        stage: {
+          type: "select",
+          options: ["new", "qualified", "proposal", "won"],
+        },
+        amount: { type: "currency" },
+      },
+      relations: { account: "Account", owner: "User" },
+    },
+  },
+  api: {
+    rest: { prefix: "/api/crm" },
+    graphql: { path: "/graphql/crm" },
+  },
+  hooks: {
+    Deal: {
+      afterChange: ["notifySlack", "syncWarehouse", "triggerPlaybooks"],
+    },
+  },
+});
+```
+
+That means schema changes can move through the same process as the rest of your product:
+
+- pull requests
+- code review
+- CI
+- staged rollout
+- rollback-safe history
+
+For teams that already trust Git more than admin dashboards, that matters.
+
+## Fully extensible
+
+OboeCRM is not trying to hide software from engineering. It gives you generated surfaces where they save time, then leaves the system open where your team needs control.
+
+You can:
+
+- keep the default admin UI when it is good enough
+- embed CRM actions and views into your existing product
+- extend the operator experience with your own React components
+- add custom endpoints or workflow logic around the generated core
+- shape access control around your tenant model, org structure, or compliance needs
+
+This is why "code-first CRM" is a useful concept. You are not just configuring a tool. You are building a system with leverage.
+
+## Common ways to use OboeCRM
+
+Teams can start from different entry points depending on what they need first:
+
+### Headless CRM
+
+Use OboeCRM as the API-first backbone for accounts, deals, and playbooks, then surface CRM actions inside your existing product or internal tools.
+
+See [Generated APIs](/docs/core-concepts/generated-apis) and the [Headless CRM page](/use-cases/headless-crm).
+
+### Enterprise app builder
+
+Spin up secure RevOps consoles, partner tools, or internal operator workflows without rebuilding auth, permissions, and admin foundations from zero.
+
+See [Access control](/docs/core-concepts/access-control), [Admin UI](/docs/core-concepts/admin-ui), and the [Enterprise app builder page](/use-cases/enterprise-app-builder).
+
+### Sales force automation
+
+Model stage transitions, approvals, routing, and rep workflows directly in TypeScript instead of stitching together brittle automations.
+
+See [Events and hooks](/docs/core-concepts/events-and-hooks) and the [Sales force automation page](/use-cases/sales-force-automation).
+
+### Marketing automation
+
+Keep audience state, lifecycle events, and campaign triggers close to the same customer graph your revenue team already uses.
+
+See [Import and sync](/docs/guides/import-and-sync) and the [Marketing automation page](/use-cases/marketing-automation).
+
+## When OboeCRM might be for you
+
+- you want CRM data ownership instead of a SaaS black box sitting between your team and your customer graph
+- you need a CRM that can adapt to your product, not the other way around
+- you want APIs, admin tooling, and hooks generated from one schema
+- you need custom business logic, tenant-aware access, or product-embedded CRM experiences
+- you want GTM infrastructure to move through Git, code review, and standard deployment workflows
+
+## When OboeCRM might not be for you
+
+- you only need a conventional out-of-the-box CRM and do not need to customize its model or workflows
+- you do not want to maintain application code or infrastructure in your own stack
+- you only need a reporting layer on top of an existing database, not a CRM foundation
+- you are specifically looking for a no-code tool where every configuration change happens in the browser
+
+## Where to go next
+
+If this operating model fits how your team builds, continue in this order:
+
+1. [Overview](/docs/getting-started/overview)
+2. [Quickstart](/docs/getting-started/quickstart)
+3. [Your first schema](/docs/getting-started/your-first-schema)
+4. [Generated APIs](/docs/core-concepts/generated-apis)
+5. [Config reference](/docs/reference/config-reference)
+
+<DocCta
+  title="If the model fits, keep evaluating from the config."
+  description="The fastest way to validate OboeCRM is to read one schema, follow it into the generated surfaces, and decide whether that operating model matches your stack."
+  secondaryHref="/docs/getting-started/quickstart"
+  secondaryLabel="Quickstart"
+  tertiaryHref="/docs/reference/config-reference"
+  tertiaryLabel="Config reference"
+/>

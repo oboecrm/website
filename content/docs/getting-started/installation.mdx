@@ -1,0 +1,140 @@
+---
+title: Installation
+description: Install OboeCRM as self-hosted application infrastructure, either by scaffolding a new project or wiring it into an existing stack.
+---
+
+# Installation
+
+OboeCRM is meant to be adopted more like application infrastructure than like a hosted SaaS tool.
+
+That means installation is not just "create an account and click around." You are choosing to run a CRM model, APIs, and operator tooling inside software you own.
+
+This page explains the practical setup assumptions and the two installation paths that matter first:
+
+- start a new project from a scaffold
+- add OboeCRM to an existing application
+
+## Software requirements
+
+Before going further, make sure your environment matches the assumptions already visible in this docs set:
+
+- Node.js and a modern JavaScript package manager such as `pnpm`, `npm`, or `yarn`
+- a Next.js application runtime
+- a database you control
+- environment-variable based runtime configuration
+
+If your team does not want to own application runtime, secrets, migrations, and deployment, OboeCRM is probably the wrong fit.
+
+If that operating model is attractive, continue.
+
+## Choose your installation path
+
+There are two sensible ways to begin:
+
+### 1. Start from a new project
+
+If you want the fastest path to a working OboeCRM-shaped application, start with the scaffold:
+
+```bash
+npx create-oboe-app
+```
+
+This is the best option when you want to:
+
+- evaluate the full shape of the project quickly
+- avoid hand-assembling the first config and runtime structure
+- see how OboeCRM expects the app, config, and generated surfaces to fit together
+
+After scaffolding, your next step is usually to inspect `oboe.config.ts` and compare the generated shape against your team’s CRM requirements.
+
+### 2. Add OboeCRM to an existing application
+
+If you already have a Next.js app and want OboeCRM to become part of your current stack, install it like you would any other infrastructure layer:
+
+1. add the Oboe packages to your app
+2. create an `oboe.config.ts` file
+3. connect environment variables for secrets and database access
+4. wire the generated APIs and operator surfaces into your runtime
+
+This path is the better fit when:
+
+- you already have an application shell or product surface
+- you want CRM functionality to live beside existing routes and systems
+- you plan to embed or extend operator tooling instead of treating it as a separate product
+
+## Minimal installation shape
+
+At minimum, an OboeCRM setup should have:
+
+- an application runtime
+- an `oboe.config.ts` file
+- a database connection
+- environment variables for deploy-time concerns
+
+The config is the spine of the system:
+
+```ts
+// oboe.config.ts
+import { defineConfig } from "@oboe/crm";
+
+export default defineConfig({
+  schema: {
+    Account: {
+      fields: {
+        name: { type: "text", required: true },
+      },
+    },
+  },
+  api: { rest: true, graphql: true },
+});
+```
+
+From there, OboeCRM is expected to shape the rest of the runtime around that model, including generated interfaces and operator-facing surfaces.
+
+Read more in [Config reference](/docs/reference/config-reference).
+
+## Environment and deployment concerns
+
+Because OboeCRM is self-hosted, installation is only the first step. You should validate these concerns early:
+
+- where the database lives
+- how secrets are managed
+- how schema changes are promoted between environments
+- how migrations are applied
+- how admin and API surfaces fit into your deployment model
+
+If any of those are unresolved, installation may appear easy while production rollout remains unclear.
+
+Read more in [Environment variables](/docs/reference/environment-variables), [Self-hosting](/docs/guides/self-hosting), and [Migrations](/docs/guides/migrations).
+
+## Practical recommendation
+
+If you are evaluating OboeCRM for the first time, do not begin by trying to productionize everything.
+
+Use this order instead:
+
+1. scaffold or create the smallest possible project shape
+2. read the config and confirm the mental model makes sense
+3. model one or two objects such as `Account` and `Deal`
+4. verify that the generated surfaces match your expectations
+5. only then decide how seriously to invest in self-hosting and rollout
+
+This is the fastest way to avoid spending time on infrastructure before you know the code-first model fits your team.
+
+## What to read next
+
+After installation, continue in this order:
+
+1. [Quickstart](/docs/getting-started/quickstart)
+2. [Your first schema](/docs/getting-started/your-first-schema)
+3. [Config reference](/docs/reference/config-reference)
+4. [Self-hosting](/docs/guides/self-hosting)
+
+<DocCta
+  title="Install the smallest shape, then validate the model."
+  description="The goal of installation is not to finish infrastructure work. It is to get to one concrete Oboe config quickly enough to decide whether the system fits your stack."
+  secondaryHref="/docs/getting-started/quickstart"
+  secondaryLabel="Quickstart"
+  tertiaryHref="/docs/reference/config-reference"
+  tertiaryLabel="Config reference"
+/>

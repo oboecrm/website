@@ -1,0 +1,11 @@
+{
+  "title": "Getting Started",
+  "pages": [
+    "what-is-oboe",
+    "concepts",
+    "overview",
+    "quickstart",
+    "installation",
+    "your-first-schema"
+  ]
+}

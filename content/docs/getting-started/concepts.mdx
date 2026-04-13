@@ -1,0 +1,163 @@
+---
+title: Concepts
+description: Learn the core concepts behind OboeCRM so the rest of the documentation reads as one coherent system.
+---
+
+# OboeCRM Concepts
+
+OboeCRM is built around a small set of concepts that repeat throughout the docs.
+
+Before going deeper into setup or implementation details, it helps to establish a common language for how the system is meant to work. The short version is:
+
+- the config is the center of the system
+- the schema defines the CRM model
+- generated APIs and admin surfaces follow that model
+- access rules and hooks extend the same contract
+
+If those ideas click, the rest of the docs become much easier to evaluate.
+
+## Config
+
+The Oboe config is the top-level contract for your CRM application.
+
+It is where you define the model and the runtime behavior that should follow from that model, including things like:
+
+- schema
+- API settings
+- auth
+- access control
+- hooks
+- admin behavior
+
+The main idea is that OboeCRM should be understandable from one reviewed config instead of from a mix of dashboards, scripts, and hidden conventions.
+
+Read more in [Config reference](/docs/reference/config-reference).
+
+## Data model
+
+The data model is the source of truth for your CRM.
+
+In practice, that means accounts, deals, contacts, tasks, and any custom objects are described in code instead of configured only through an admin UI. The model should influence:
+
+- persistence and validation
+- generated API shape
+- operator UI structure
+- access and workflow behavior
+
+If the model and the rest of the system drift apart, the code-first promise breaks down.
+
+Read more in [Data model](/docs/core-concepts/data-model).
+
+## Fields and relations
+
+Fields define the shape of each object. Relations define how objects connect to one another.
+
+For example:
+
+- an `Account` might have fields like `name`, `segment`, and `healthScore`
+- a `Deal` might relate back to an `Account`
+- a `PlaybookTask` might relate to both a `Deal` and an owner
+
+This is how OboeCRM turns business structure into a formal application contract.
+
+Read more in [Fields and relations](/docs/core-concepts/fields-and-relations).
+
+## Generated APIs
+
+One of the most important ideas in OboeCRM is that the same schema should drive multiple interfaces.
+
+From one model, OboeCRM is expected to generate or standardize:
+
+- REST endpoints for system integrations
+- GraphQL for flexible application reads and mutations
+- server-side access patterns for runtime code
+- admin/operator views backed by the same object definitions
+
+The win is not just that APIs exist. The win is that they follow the same model your team already understands.
+
+Read more in [Generated APIs](/docs/core-concepts/generated-apis), [REST API](/docs/reference/rest-api), and [GraphQL API](/docs/reference/graphql-api).
+
+## Access control
+
+Access control determines who can see and change what.
+
+In a code-first CRM, these rules belong next to the rest of the model so they can be reviewed the same way other application behavior is reviewed. That matters because CRM access rules are often not incidental, they are part of the product contract.
+
+Common examples:
+
+- owner-based visibility
+- role-based write permissions
+- tenant-aware filtering
+- field-level restrictions for sensitive data
+
+Read more in [Access control](/docs/core-concepts/access-control).
+
+## Hooks and events
+
+Hooks and events are how CRM state turns into business action.
+
+Examples include:
+
+- notifying Slack when a deal changes stage
+- syncing records to a warehouse
+- triggering onboarding work when an account is created
+- validating or enriching records before they are saved
+
+Without explicit hooks, teams often end up with fragile automation spread across multiple systems. OboeCRM is meant to make those extension points visible and versioned.
+
+Read more in [Events and hooks](/docs/core-concepts/events-and-hooks).
+
+## Admin UI
+
+The admin UI is an interface generated from or aligned with the model. It is not the source of truth itself.
+
+That distinction matters:
+
+- engineers own the system in code
+- operators use interfaces derived from that system
+- custom UI can be added without inventing a second hidden configuration layer
+
+The admin surface should help teams operate the CRM, not replace the model that defines it.
+
+Read more in [Admin UI](/docs/core-concepts/admin-ui) and [Embedding admin in Next.js](/docs/guides/embedding-admin-in-nextjs).
+
+## Local runtime and external APIs
+
+When teams say "API", they often mean different things. In OboeCRM, it helps to separate two kinds of access:
+
+- local runtime access inside your own server-side code
+- external APIs such as REST and GraphQL
+
+This distinction matters because some work is best done inside your app runtime, while other work needs stable network-facing interfaces for integrations or custom frontends.
+
+Read more in [Generated APIs](/docs/core-concepts/generated-apis), [REST API](/docs/reference/rest-api), and [GraphQL API](/docs/reference/graphql-api).
+
+## How the pieces fit together
+
+You can think about OboeCRM like this:
+
+1. define your CRM model in config
+2. describe objects with fields and relations
+3. generate or standardize the APIs and operator surfaces around that model
+4. apply access rules to control behavior
+5. attach hooks and events to connect CRM state with the rest of your stack
+
+If one of those pieces is treated as separate from the others, you lose the main advantage of a code-first system.
+
+## What to read next
+
+If you are evaluating OboeCRM for the first time, continue in this order:
+
+1. [What is Oboe?](/docs/getting-started/what-is-oboe)
+2. [Overview](/docs/getting-started/overview)
+3. [Quickstart](/docs/getting-started/quickstart)
+4. [Your first schema](/docs/getting-started/your-first-schema)
+
+<DocCta
+  title="Once the concepts are clear, move to the schema."
+  description="The fastest way to validate OboeCRM is to connect these concepts to one concrete config and follow how that config shapes the rest of the system."
+  secondaryHref="/docs/getting-started/quickstart"
+  secondaryLabel="Quickstart"
+  tertiaryHref="/docs/getting-started/your-first-schema"
+  tertiaryLabel="Your first schema"
+/>

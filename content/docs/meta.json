@@ -2,7 +2,7 @@
   "root": true,
   "pages": [
     "index",
-    "start-here",
+    "getting-started",
     "core-concepts",
     "reference",
     "guides",
